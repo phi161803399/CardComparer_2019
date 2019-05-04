@@ -11,11 +11,23 @@ namespace CardComparer_2019
         static void Main(string[] args)
         {
             createFiveRandomCards();
+            Console.WriteLine("Five random cards:");
+            printDeckToConsole();
+            CardComparer_byValue cardComparer = new CardComparer_byValue();
+            deck.Sort(cardComparer);
+            Console.WriteLine("\r\n");
+            Console.WriteLine("Those same cards, sorted:");
+            printDeckToConsole();
+            
+            Console.ReadKey();
+        }
+
+        private static void printDeckToConsole()
+        {
             foreach (var card in deck)
             {
                 Console.WriteLine(card.Name);
             }
-            Console.ReadLine();
         }
 
         private static void createFiveRandomCards()
